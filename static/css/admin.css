@@ -1,0 +1,58 @@
+:root{
+  --bg:#f4f6fb;--card:#fff;--ink:#1b2437;--muted:#6b7280;
+  --brand:#1a2b4c;--accent:#f5c518;--danger:#e74c3c;
+  --line:#e5e9f2;--shadow:0 8px 24px rgba(17,29,60,.08);
+}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Arial,sans-serif;background:var(--bg);color:var(--ink)}
+a{text-decoration:none;color:inherit}
+.layout{display:flex;min-height:100vh}
+.sidebar{width:250px;background:var(--brand);color:#fff;padding:22px 16px;display:flex;flex-direction:column;gap:6px;position:sticky;top:0;height:100vh}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px;padding:6px 8px 22px}
+.logo .mark{width:34px;height:34px;border-radius:9px;background:var(--accent);color:var(--brand);display:grid;place-items:center;font-size:18px;font-weight:900}
+.nav-item{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:9px;color:#c9d4e8;font-size:14.5px;transition:.15s}
+.nav-item:hover{background:rgba(255,255,255,.07);color:#fff}
+.nav-item.active{background:var(--accent);color:var(--brand);font-weight:700}
+.side-foot{margin-top:auto;font-size:12px;color:#8fa0bf;padding:10px 8px}
+.main{flex:1;display:flex;flex-direction:column;min-width:0}
+.topbar{background:#fff;border-bottom:1px solid var(--line);padding:14px 28px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:20}
+.topbar h1{margin:0;font-size:19px}
+.user{display:flex;align-items:center;gap:10px}
+.avatar{width:36px;height:36px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:700}
+.content{padding:26px 28px;flex:1}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:18px;margin-bottom:26px}
+.card{background:var(--card);border-radius:14px;padding:20px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.stat{display:flex;justify-content:space-between;align-items:flex-start}
+.stat h2{margin:0;font-size:30px}
+.stat p{margin:4px 0 0;color:var(--muted);font-size:13.5px}
+.badge-ico{width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-size:19px;background:#eef3ff;color:#2a4ea8}
+.badge-ico.y{background:#fff6d6;color:#b8860b}
+.badge-ico.g{background:#e6f8ee;color:#1e9e5a}
+.badge-ico.r{background:#fdeaea;color:var(--danger)}
+.panel{background:var(--card);border-radius:14px;box-shadow:var(--shadow);border:1px solid var(--line);margin-bottom:24px;overflow:hidden}
+.panel-head{padding:18px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.panel-head h3{margin:0;font-size:16px}
+.panel-body{padding:20px}
+table{width:100%;border-collapse:collapse;font-size:14px}
+thead th{text-align:left;padding:12px 16px;background:#f8fafd;color:var(--muted);font-size:12px;text-transform:uppercase;letter-spacing:.4px;border-bottom:1px solid var(--line)}
+tbody td{padding:13px 16px;border-bottom:1px solid var(--line)}
+tbody tr:hover{background:#fafcff}
+.pill{display:inline-block;padding:4px 10px;border-radius:999px;font-size:12px;font-weight:600}
+.pill.active{background:#e6f8ee;color:#1e9e5a}
+.pill.cancelled{background:#fdeaea;color:var(--danger)}
+.btn{border:none;border-radius:9px;padding:9px 16px;font-size:13.5px;font-weight:600;cursor:pointer;background:var(--accent);color:var(--brand);transition:.15s;display:inline-flex;align-items:center;gap:7px}
+.btn:hover{filter:brightness(.95)}
+.btn.ghost{background:#eef2f9;color:var(--ink)}
+.btn.danger{background:#fdeaea;color:var(--danger)}
+.btn.sm{padding:6px 11px;font-size:12.5px}
+input,select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:9px;font-size:14px;font-family:inherit;background:#fff;color:var(--ink);outline:none}
+input:focus,select:focus{border-color:#9db4e0;box-shadow:0 0 0 3px rgba(42,78,168,.1)}
+label{display:block;font-size:12.5px;color:var(--muted);margin:0 0 5px 2px;font-weight:600}
+.field{margin-bottom:14px}
+.flash{padding:12px 16px;border-radius:9px;margin-bottom:16px;font-size:14px;background:#d4edda;color:#155724}
+.flash.danger{background:#f8d7da;color:#721c24}
+.flash.info{background:#d1ecf1;color:#0c5460}
+.pager{display:flex;gap:10px;align-items:center;justify-content:flex-end;padding:14px 16px;font-size:13px;color:var(--muted)}
+.login-body{display:grid;place-items:center;min-height:100vh;background:var(--brand)}
+.login-card{background:#fff;padding:34px 30px;border-radius:16px;width:100%;max-width:380px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+.login-card h2{margin:0 0 20px}
