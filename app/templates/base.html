@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>{% block title %}AeroAdmin{% endblock %}</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin.css') }}">
+</head>
+<body>
+<div class="layout">
+  <aside class="sidebar">
+    <div class="logo"><span class="mark">✈</span> AeroAdmin</div>
+    <a class="nav-item {{ 'active' if request.endpoint=='admin.dashboard' }}" href="{{ url_for('admin.dashboard') }}">▦ Дашборд</a>
+    <a class="nav-item {{ 'active' if request.endpoint=='admin.airlines' }}" href="{{ url_for('admin.airlines') }}">🏢 Авиакомпании</a>
+    <a class="nav-item {{ 'active' if request.endpoint=='admin.flights' }}" href="{{ url_for('admin.flights') }}">🛫 Рейсы и тарифы</a>
+    <a class="nav-item {{ 'active' if request.endpoint=='admin.bookings' }}" href="{{ url_for('admin.bookings') }}">🎫 Бронирования</a>
+    <a class="nav-item {{ 'active' if request.endpoint=='admin.stats' }}" href="{{ url_for('admin.stats') }}">📊 Статистика</a>
+    <div class="side-foot">Университет «Синергия»<br>ПМ.05 · 2025</div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <h1>{% block heading %}{% endblock %}</h1>
+      <div class="user">
+        <div class="avatar">А</div>
+        <div><b>{{ current_user.username }}</b><br>
+          <small><a href="{{ url_for('auth.logout') }}">Выйти</a></small>
+        </div>
+      </div>
+    </header>
+    <main class="content">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+        {% for cat, msg in messages %}
+          <div class="flash {{ cat }}">{{ msg }}</div>
+        {% endfor %}
+      {% endwith %}
+      {% block content %}{% endblock %}
+    </main>
+  </div>
+</div>
+</body>
+</html>
