@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block heading %}Дашборд{% endblock %}
+{% block content %}
+<div class="cards">
+  <div class="card"><div class="stat"><div><h2>{{ stats.airlines }}</h2><p>Авиакомпаний</p></div><div class="badge-ico">🏢</div></div></div>
+  <div class="card"><div class="stat"><div><h2>{{ stats.flights }}</h2><p>Рейсов</p></div><div class="badge-ico y">🛫</div></div></div>
+  <div class="card"><div class="stat"><div><h2>{{ stats.bookings }}</h2><p>Всего броней</p></div><div class="badge-ico g">🎫</div></div></div>
+  <div class="card"><div class="stat"><div><h2>{{ stats.active }}</h2><p>Активных</p></div><div class="badge-ico r">✔</div></div></div>
+</div>
+<div class="panel">
+  <div class="panel-head"><h3>Ближайшие рейсы</h3></div>
+  <table>
+    <thead><tr><th>Рейс</th><th>Авиакомпания</th><th>Маршрут</th><th>Вылет</th><th>Тариф</th></tr></thead>
+    <tbody>
+    {% for f in nearest %}
+      <tr>
+        <td><b>{{ f.flight_number }}</b></td>
+        <td>{{ f.airline.name }}</td>
+        <td>{{ f.departure_city }} → {{ f.arrival_city }}</td>
+        <td>{{ f.departure_time.strftime('%d.%m.%Y %H:%M') }}</td>
+        <td>{{ '%.0f'|format(f.base_price) }} ₽</td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
